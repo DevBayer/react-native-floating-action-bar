@@ -6,6 +6,10 @@ A React Native floating action bar.
 | :--------------------------------------------------------: | :----------------------------------------------------: |
 | ![Horizontal action bar](assets/horizontal-action-bar.png) | ![Vertical action bar](assets/vertical-action-bar.png) |
 
+## The Fork
+
+This project has been modified to supply the external navigation control facilities.
+
 ## Installation
 
 _npm_

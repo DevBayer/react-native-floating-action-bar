@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 import FloatingActionButton from './FloatingActionButton';
 import FloatingActionIndicator from './FloatingActionIndicator';
@@ -14,6 +14,7 @@ const FloatingActionBar = ({
 }) => {
   const [currentIndex, setCurrentIndex] = useState(selectedIndex || 0);
   const size = getSize(position);
+  useEffect(() => setCurrentIndex(selectedIndex), [selectedIndex]);
   return (
     <View style={[styles.container, getPositions(position, offset)]}>
       <View style={[styles.content, style]}>
