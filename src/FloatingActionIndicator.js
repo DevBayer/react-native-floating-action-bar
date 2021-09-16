@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import {LayoutAnimation, StyleSheet, View} from 'react-native';
-
+import {LayoutAnimation, StyleSheet, View, Platform, UIManager} from 'react-native';
+if (Platform.OS === "android" && UIManager.setLayoutAnimationEnabledExperimental) {
+  UIManager.setLayoutAnimationEnabledExperimental(true);
+}
 const FloatingActionIndicator = ({
   activeBackgroundColor,
   height,
@@ -9,7 +11,9 @@ const FloatingActionIndicator = ({
   selectedIndex,
   width,
 }) => {
-  LayoutAnimation.configureNext(null);
+  if(Platform.OS !== "android") { // -> This is causing null exception on Android.
+    LayoutAnimation.configureNext(null);
+  }
   LayoutAnimation.configureNext(ANIMATION_PRESET);
   return (
     <View
