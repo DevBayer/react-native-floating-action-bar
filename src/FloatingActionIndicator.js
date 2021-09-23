@@ -11,9 +11,6 @@ const FloatingActionIndicator = ({
   selectedIndex,
   width,
 }) => {
-  if(Platform.OS !== "android") { // -> This is causing null exception on Android.
-    LayoutAnimation.configureNext(null);
-  }
   LayoutAnimation.configureNext(ANIMATION_PRESET);
   return (
     <View
